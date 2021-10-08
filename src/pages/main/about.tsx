@@ -29,7 +29,7 @@ const messages = [
     'Even when my friend\ncame to my house,\nI CODED.\n\n(I treated him later)',
     'Fortunately,\nI also worked\nwith support from\na national research institute.',
     'And then,\nI joined the team\nHIDDENTRACK,\ndeveloped a service\ncalled "Linder".',
-    'I have constantly tried to grow\nas a great developer for 2 years,\nand I am still doing so.'
+    'I have constantly\ntried to grow\nas a great developer\nfor 2 years,\nand I am still doing so.'
 ]
 const images = [Kma, Monitors, ImCoding, Lab, Linder, Profile];
 
