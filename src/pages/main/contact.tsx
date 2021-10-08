@@ -5,9 +5,7 @@ import { Scene } from 'react-scrollmagic';
 import { CInput } from '../../components/input';
 import { CText } from '../../components/text';
 import { useIsMobile } from '../../lib/hooks';
-import {
-    getFlexStyle, getScreenHeight, useColor, useContainerPadding, useFontColor,
-} from '../../lib/style';
+import { getFlexStyle, getScreenHeight, useColor, useFontColor } from '../../lib/style';
 
 // eslint-disable-next-line no-undef
 const USER_ID = process.env.REACT_APP_EMAIL_JS_USER_ID;
@@ -17,7 +15,6 @@ const TEMPLATE_ID = 'template_pyc0z1s';
 export function Contact() {
 
     const color = useColor();
-    const padding = useContainerPadding();
     const isMobile = useIsMobile();
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -60,43 +57,16 @@ export function Contact() {
             backgroundColor: color.point1,
             width: '100%',
             height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            paddingTop: 100,
         } }>
             <CText size="g1" msg="Thanks!" dark style={ { 
-                position: 'absolute',
-                top: isMobile ? '15vh' : '30vh',
-                left: isMobile ?  padding : '15vw',
-                letterSpacing: 10,
+                letterSpacing: 15,
             } }/>
-            { sended ? <CText style={ { 
-                position: 'absolute',
-                bottom: isMobile ? '10vh' : undefined,
-                top: isMobile ? undefined : '50vh',
-                left: isMobile ? padding : '15vw',
-            } }
-            lineGap={ 20 } msg={'The message arrived safely!\nI will check it\nand contact you ASAP :)'} /> :
-                <div onClick={ sendEmail } className={ submitBtnClass }
-                    onMouseOver={ () => setHover(true)}
-                    onMouseLeave={ () => setHover(false)}
-                    style={ { 
-                        position: 'absolute',
-                        bottom: isMobile ? '10vh' : undefined,
-                        top: isMobile ? undefined : '50vh',
-                        left: isMobile ? padding : '15vw',
-                        backgroundColor: fontColor.dark,
-                        width: isMobile ? 150 : 300,
-                        height: isMobile ? 50 : 100,
-                        borderRadius: 100,
-                        ...getFlexStyle('center'),
-                    } } >
-                    <CText msg="Send Message" style={ {
-                        color: color.point1,
-                    } }/>   
-                </div> }
             <div style={ { 
-                position: 'absolute',
-                top: isMobile ? '25vh' : '30vh',
-                left: isMobile ? padding : undefined,
-                right: isMobile ? undefined : '15vw',
+                marginTop: 60,
             } }>
                 { sended ? 
                     <></> :
@@ -120,6 +90,25 @@ export function Contact() {
                     </>
                 }
             </div>
+            { sended ? <CText style={ { 
+                marginTop: 60,
+            } }
+            lineGap={ 20 } msg={'The message arrived safely!\nI will check it\nand contact you ASAP :)'} /> :
+                <div onClick={ sendEmail } className={ submitBtnClass }
+                    onMouseOver={ () => setHover(true)}
+                    onMouseLeave={ () => setHover(false)}
+                    style={ { 
+                        marginTop: 48,
+                        backgroundColor: fontColor.dark,
+                        width: isMobile ? 150 : 300,
+                        height: isMobile ? 50 : 100,
+                        borderRadius: 100,
+                        ...getFlexStyle('center'),
+                    } } >
+                    <CText msg="Send Message" style={ {
+                        color: color.point1,
+                    } }/>   
+                </div> }
         </div>
     </Scene>
 }

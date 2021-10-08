@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { HEADER_HEIGHT } from '../lib/guideline/layout';
-import { useIsMobile } from '../lib/hooks';
+import { useIsDesktop, useIsMobile } from '../lib/hooks';
 import {
     getFlexStyle, getScreenHeight, paddingHorizontal, useContainerPadding,
 } from '../lib/style';
@@ -19,6 +19,7 @@ export default function Header() {
     const page = useSelector(selectPage);
     const dark = page === 'works';
     const isMobile = useIsMobile();
+    const isDesktop = useIsDesktop();
 
     const handleHomeClick = useCallback(() => {
         window.scrollTo({ top: 0})
@@ -50,7 +51,7 @@ export default function Header() {
         ...getFlexStyle('space-between'),
     } }>
         <div style={ getFlexStyle('flex-start', 32)}>
-            <SidebarButton />
+            { !isDesktop && <SidebarButton /> }
             { !isMobile && <>
                 <div style={ getFlexStyle('flex-start', 24)}>
                     <div onClick={ handleHomeClick }>

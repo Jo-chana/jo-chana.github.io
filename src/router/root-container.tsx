@@ -4,7 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Footer from '../components/footer';
 import Header from '../components/header';
-import { SidebarContainer } from '../components/sidebar';
+import { SIDEBAR_WIDTH, SidebarContainer } from '../components/sidebar';
+import { useIsDesktop } from '../lib/hooks';
 import { useColor } from '../lib/style';
 import { selectPage } from '../store/page';
 import { Routes } from './routes';
@@ -22,11 +23,13 @@ export default function RootContainer() {
     const color = useColor();
     //@ts-ignore
     const backgroundColor = color[BACKGROUND_COLOR_MAP[page]];
+    const isDesktop = useIsDesktop();
     
     return <BrowserRouter>
         <div style={ {
             minHeight: '100vh',
             backgroundColor,
+            paddingLeft: isDesktop ? SIDEBAR_WIDTH : undefined,
         } }>
             <Header />
             {

@@ -30,3 +30,7 @@ export function useIsMobile() {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)"});
     return isMobile;
 }
+export function useIsDesktop() {
+    const isDesktop = useMediaQuery({ query: "(min-width: 1281px)"});
+    return isDesktop;
+}

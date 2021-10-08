@@ -94,11 +94,11 @@ export function About() {
                     width: isMobile ? '100vw' : '50vw',
                     height: '100vh',
                 } } src={ getImage(progress - 0.25) } />
-                <CText size="g2" msg="About Me" 
+                <CText size="g1" msg="About Me" 
                     style={ { 
                         position: isMobile ? 'relative' : 'absolute',
                         top: isMobile ? 20 : 140,
-                        right: isMobile ? undefined : '35vw',
+                        left: isMobile ? undefined : '5vw',
                         letterSpacing: isMobile ? 0 : 30,
                         transform: `translate3d(-${
                             ABOUT_SCROLL_HEIGHT * (0.5 - Math.min(progress * 2, 0.5))
@@ -134,7 +134,7 @@ export function About() {
                         position: 'absolute',
                         top: '40vh',
                         height: 40,
-                        right: isMobile ? '10vw' : '60vw',
+                        right: isMobile ? '10vw' : '55vw',
                         letterSpacing: 10,
                     } }
                 />
@@ -145,7 +145,7 @@ export function About() {
                         position: 'absolute',
                         top: '50vh',
                         height: 40,
-                        right: isMobile ? '10vw' : '60vw',
+                        right: isMobile ? '10vw' : '55vw',
                         letterSpacing: 3,
                     } }
                 />

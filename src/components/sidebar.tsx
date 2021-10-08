@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import Sidebar from 'react-sidebar';
 
 import Profile from '../images/profile.png';
-import { useIsMobile } from '../lib/hooks';
+import { useIsDesktop, useIsMobile } from '../lib/hooks';
 import {
     getFlexStyle, getRoundStyle, getScreenHeight, paddingVertical, useColor, useFontColor,
 } from '../lib/style';
@@ -19,6 +19,8 @@ import { selectSidebar, sidebarClick } from '../store/sidebar';
 import { ColorThemeSelector } from './color-theme';
 import { CText } from './text';
 
+export const SIDEBAR_WIDTH = 310;
+
 const SIDEBAR_STYLE = {
     root: {
         position: undefined,
@@ -27,7 +29,7 @@ const SIDEBAR_STYLE = {
     },
     sidebar: {
         position: "fixed",
-        width: "310px",
+        width: `${SIDEBAR_WIDTH}px`,
         height: "100vh",
         top: "0px",
         zIndex: "20",
@@ -147,7 +149,10 @@ export function SidebarContainer() {
         dispatch(sidebarClick());
     }, [])
 
+    const isDesktop = useIsDesktop();
+
     return <Sidebar 
+        docked={ isDesktop }
         onSetOpen={ handleSetOpen } 
         styles={ SIDEBAR_STYLE } sidebar={ <SidebarComponent /> } open={ open } 
         children={ <></> }/>
