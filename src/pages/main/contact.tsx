@@ -65,6 +65,10 @@ export function Contact() {
             <CText size="g1" msg="Thanks!" dark style={ { 
                 letterSpacing: 15,
             } }/>
+            <CText  msg="Contact me?" dark style={ { 
+                marginTop: 32,
+                letterSpacing: 15,
+            } }/>
             <div style={ { 
                 marginTop: 60,
             } }>
