@@ -10,6 +10,7 @@ export const PADDING = {
 }
 
 export const FONT_SIZE = {
+    extraSmall: 12,
     small: 16,
     medium: 24,
     semiLarge: 32,
@@ -19,6 +20,7 @@ export const FONT_SIZE = {
     bg: 240,
 }
 export const MOBILE_FONT_SIZE = {
+    extraSmall: 8,
     small: 12,
     medium: 16,
     semiLarge: 24,

@@ -139,6 +139,7 @@ function SidebarComponent() {
             <AiOutlineGlobal onClick={ () => window.open('https://chana.tistory.com')}
                 size={ iconSize } color={ fontColor.bright } />
         </div>
+        <CText style={ { marginTop: 8 } } size="extraSmall" msg="© 2021. Jo Chana. All rights reserved." />
     </div>
 }
 
