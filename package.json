@@ -1,5 +1,6 @@
 {
-  "name": "chana-react-boilerplate",
+  "name": "jochana-homepage",
+  "homepage": "https://jo-chana.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
