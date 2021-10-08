@@ -159,7 +159,7 @@ export function FootPrintItem({
 
     return <WorkItem progress={progress} index={index}>
         <div onClick={ () => window.open('https://github.com/Jo-chana/footprint-v2')}>
-            <ReactPlayer width={ size } url={ footPrintUrl} 
+            <ReactPlayer width={ size } height={ size } url={ footPrintUrl} 
                 style={ { borderRadius: 10 } }/>
             <CText style={ { 
                 marginTop: 18,
@@ -193,7 +193,7 @@ export function HankkiItem({
     
     return <WorkItem progress={progress} index={index}>
         <div onClick={ () => window.open("https://github.com/Jo-chana/FoodDeal")}>
-            <ReactPlayer width={ size } url={ hankkiUrl} 
+            <ReactPlayer width={ size } height={ size } url={ hankkiUrl} 
                 style={ { borderRadius: 10 } }/>
             <CText style={ { 
                 marginTop: 18,
@@ -271,7 +271,7 @@ export function LinderItem({
 
     return <WorkItem progress={progress} index={index}>
         <div >
-            <ReactPlayer width={ size } url={ linderUrl} 
+            <ReactPlayer width={ size } height={ size } url={ linderUrl} 
                 style={ { borderRadius: 10 } }/>
             <CText style={ { 
                 marginTop: 18,
@@ -311,7 +311,7 @@ export function BuvItem({
 
     return <WorkItem progress={progress} index={index}>
         <div >
-            <ReactPlayer width={ size } url={ buvUrl } 
+            <ReactPlayer width={ size } height={ size } url={ buvUrl } 
                 style={ { borderRadius: 10 } }/>
             <CText style={ { 
                 marginTop: 18,
