@@ -43,11 +43,35 @@ function getYear(progress: number) {
     const offset = 0.75/years.length;
     return years[Math.floor(progress / offset)];
 }
-function getImage(progress: number) {
-    if(progress < 0) return images[0];
-    if(progress >= 0.75) return images[images.length - 1];
+function getImageIndex(progress: number) {
+    if(progress < 0) return 0;
+    if(progress >= 0.75) return images.length - 1;
     const offset = 0.75/images.length;
-    return images[Math.floor(progress / offset)];
+    return Math.floor(progress / offset);
+}
+
+function BackgroundImage({
+    src,
+    opacity,
+    visible,
+}: {
+    src: string;
+    opacity?: string | number;
+    visible?: boolean;
+}) {
+
+    const isMobile  = useIsMobile();
+
+    return <img style={ { 
+        position: 'absolute',
+        objectFit: 'cover',
+        top: 0,
+        right: 0,
+        opacity,
+        width: isMobile ? '100vw' : '50vw',
+        height: '100vh',
+        display: visible ? undefined : 'none'
+    } } src={ src } />
 }
 
 export function About() {
@@ -79,21 +103,19 @@ export function About() {
         { (progress: number) => {
             handleScroll(progress);
             handleProgress(progress);
+            const imageOpacity = `${(isMobile ? 0.3 : 0.7) * (Math.min(progress * 3, 0.5) * 2)}`;
+            const imageIndex = getImageIndex(progress - 0.25);
+
             return <div className={ `about ${animate}`} style={ { height: '100vh',
                 backgroundColor: color.background2,
                 position: 'relative',
                 overflow: 'hidden',
                 paddingTop: HEADER_HEIGHT,
                 ...paddingHorizontal(containerPadding) } } >
-                <img style={ { 
-                    position: 'absolute',
-                    objectFit: 'cover',
-                    top: 0,
-                    right: 0,
-                    opacity: `${(isMobile ? 0.3 : 0.7) * (Math.min(progress * 3, 0.5) * 2)}`,
-                    width: isMobile ? '100vw' : '50vw',
-                    height: '100vh',
-                } } src={ getImage(progress - 0.25) } />
+                
+                { images.map((image, idx) => 
+                    <BackgroundImage visible={ idx === imageIndex } key={ idx } src={ image } opacity={ imageOpacity } />
+                )}
                 <CText size="g1" msg="About Me" 
                     style={ { 
                         position: isMobile ? 'relative' : 'absolute',
