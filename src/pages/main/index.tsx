@@ -7,10 +7,12 @@ import { Home } from './home';
 import { Works } from './works';
 
 export function Main() {
-    return <Controller>
-        <Home />
-        <About />
-        <Works />
-        <Contact />
-    </Controller>;
+    return <div>
+        <Controller>
+            <Home />
+            <About />
+            <Works />
+            <Contact />
+        </Controller>
+    </div>;
 }
