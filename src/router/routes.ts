@@ -1,4 +1,5 @@
 import { Main } from '../pages/main';
+import { Resume } from '../pages/resume';
 import { Work } from '../pages/work';
 
 interface IRouteItem {
@@ -20,5 +21,11 @@ export const Routes: IRouteItem[] = [
         exact: true,
         component: Work,
         path: '/work',
-    }
+    },
+    {
+        name: 'Resume',
+        exact: true,
+        component: Resume,
+        path: '/resume',
+    },
 ]
